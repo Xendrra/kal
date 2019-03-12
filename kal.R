@@ -1,13 +1,13 @@
 Calendar<-function(dat){ 
   #funkce Calendar vrati den v tydnu a informaci o prestupnem roku pro zadane datum
-  #vstup...retezec s datem ve formatu 'DD.MM.RRRR' ('DD.MM.YYYY')
+  #vstup...dat,retezec s datem ve formatu 'DD.MM.RRRR' ('DD.MM.YYYY')
   #vystup...list, 1. element den v tydnu, 2. element logicka hodnota: True=prestupny, False=neprestupny rok
   dat=gsub("[.]","",dat)                      #odstrani tecky
   cisla=c(0:99)                               #pomocny vektor cisel 
   temp=numeric()                              #iniciace promennych                              
   prestup=FALSE 
   for (i in 1:nchar(dat)){ 
-    temp[i]=cisla[which(cisla==substring(dat,i,i))]  #prevod hodnot z characteru na vector
+    temp[i]=cisla[which(cisla==substring(dat,i,i))]  #prevod hodnot ze stringu na vector
   }                                                 
   q=temp[1]*10+temp[2]                               #prevod z vektoru na jedno cislo, ulozeni do promennych pro zelleruv algoritmus
   m=temp[3]*10+temp[4]
